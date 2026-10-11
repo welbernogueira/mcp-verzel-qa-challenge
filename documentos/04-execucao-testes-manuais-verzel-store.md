@@ -1235,3 +1235,93 @@ Validar CA referente ao formato do CEP.
 
 ]_
 
+---
+
+## Registro complementar — Exploração assistida com Playwright MCP (11/10/2026)
+
+> Este registro complementa as execuções manuais já documentadas. Os resultados anteriores, seus vereditos e suas evidências foram preservados. As observações abaixo não substituem a execução integral dos CTs nem transformam comportamentos sem critério de aceitação em aprovação funcional.
+
+**Ambiente:** QA — `https://verzel-store.qa-test-verzel-store.workers.dev/`
+
+**Ferramentas:** Playwright MCP (`browser_navigate`, `browser_snapshot`, `browser_click`, `browser_fill_form`, `browser_evaluate`, ferramentas de console e rede, e `browser_take_screenshot`).
+**Limites da sessão:** não foi aberto o checkout, não foram enviados pedidos e não foram executados testes automatizados.
+
+### Sessão 1 — Catálogo e navegação
+
+**Passos executados:**
+
+1. Abrir a URL do ambiente de QA.
+2. Inspecionar título, links e navegação principal.
+3. Examinar os cartões do catálogo e a resposta de `GET /api/produtos`.
+4. Verificar se os cartões expõem links ou controles de detalhes.
+
+**Resultado observado:** a página carregou com título `Produtos | Verzel Store`. A navegação apresentou Produtos, Documentação e Carrinho. Foram exibidos oito cartões:
+
+| ID | Produto | Preço exibido |
+|---|---|---:|
+| P001 | Camiseta Essencial | R$ 59,90 |
+| P002 | Calça Jeans Slim | R$ 139,90 |
+| P003 | Tênis Casual Urbano | R$ 189,90 |
+| P004 | Boné Aba Curva | R$ 49,90 |
+| P005 | Mochila Urbana 20L | R$ 100,00 |
+| P006 | Kit 3 Pares de Meias | R$ 29,90 |
+| P007 | Jaqueta Corta-Vento | R$ 229,90 |
+| P008 | Garrafa Térmica 750ml | R$ 50,00 |
+
+A chamada `GET /api/produtos` retornou HTTP 200 com P001 a P008. Os cartões não apresentaram links de detalhes; não foi identificada uma rota de detalhes pela interface observada.
+
+**Resultado esperado documentado:** `00-analise-do-desafio.md` contém esses produtos e preços como dados de teste; CT-28 e `backend-test/produtos/01-listar-produtos.spec.ts` cobrem a listagem pela API. Não foi localizado critério de aceitação para título, navegação, apresentação do catálogo ou página de detalhes.
+
+**Status:** os dados observados correspondem à tabela de teste. A conformidade funcional da apresentação e a expectativa de detalhes permanecem **pendentes de requisito**; a ausência de link não foi registrada como bug.
+
+**Evidências:** [snapshot do catálogo](../.playwright-mcp/page-2026-10-11T15-33-09-021Z.yml) e [captura de tela](../.playwright-mcp/page-2026-10-11T15-33-11-376Z.png).
+
+**Relação com testes:** CT-28 e `backend-test/produtos/01-listar-produtos.spec.ts` cobrem a API. Não foi localizado teste E2E da apresentação do catálogo ou detalhes pela interface.
+
+### Sessão 2 — Carrinho e quantidades
+
+**Passos executados:**
+
+1. Adicionar uma Camiseta Essencial e abrir o carrinho.
+2. Conferir preço unitário, quantidade e resumo.
+3. Usar o botão de aumentar até cinco unidades.
+4. Usar o botão de diminuir até uma unidade.
+5. Remover o último produto pelo controle da interface.
+
+**Resultado observado:** com uma unidade, a interface mostrou preço unitário e subtotal de R$ 59,90, desconto de R$ 0,00, frete de R$ 19,90, total de R$ 79,80 e indicação de R$ 140,10 faltantes para frete grátis. Em quantidade 1, o botão de diminuir ficou desabilitado. Em quantidade 5, o cartão exibiu “Limite de 5 unidades por produto.”, o botão de aumentar ficou desabilitado, subtotal e total foram R$ 299,50 e o frete apareceu como grátis. Ao remover o produto, o carrinho exibiu “Seu carrinho está vazio”, contador 0 e link “Ver produtos”.
+
+**Resultado esperado documentado:** quantidade válida é inteiro ≥ 1; CA10/CT-27 define o limite de cinco unidades na interface; abaixo de R$ 200,00 o frete é R$ 19,90 e, a partir de R$ 200,00, grátis; o total segue `subtotal - desconto + frete`. Não foi localizado critério específico para desabilitar o botão de diminuir em 1, remover o último produto ou o texto do estado vazio.
+
+**Status:** o limite de cinco unidades e o botão de aumentar desabilitado estão **conformes** com CA10/CT-27. Os valores da cesta de uma unidade são compatíveis com as regras documentadas. O controle mínimo e a remoção foram observados, mas a conformidade funcional do estado vazio permanece **pendente de requisito**. A quantidade 5 não testa a fronteira exata de frete grátis em R$ 200,00.
+
+**Evidências:** [carrinho com uma unidade](../.playwright-mcp/page-2026-10-11T15-40-59-928Z.yml), [carrinho com cinco unidades](../.playwright-mcp/page-2026-10-11T15-41-10-044Z.yml), [captura com cinco unidades](../.playwright-mcp/page-2026-10-11T15-41-12-534Z.png), [quantidade mínima observada](../.playwright-mcp/page-2026-10-11T15-41-20-110Z.yml) e [estado vazio após remoção](../.playwright-mcp/page-2026-10-11T15-41-22-581Z.yml).
+
+**Relação com testes:** CT-27 e `e2e/cupons/10-limite-5-unidades.spec.ts` verificam o limite da interface. CT-07 e CT-13 se relacionam aos valores observados; a cesta explorada não substitui os casos de fronteira e arredondamento.
+
+### Sessão 3 — Cupons pela interface
+
+**Passos executados:**
+
+1. Adicionar uma Camiseta Essencial e aplicar `BEMVINDO10`.
+2. Conferir mensagem e valores; remover o cupom pelo controle apresentado.
+3. Aplicar `CUPOMINVALIDOQA` e depois `VERAO2026` no mesmo carrinho.
+4. Conferir console e chamadas a `POST /api/carrinho/calcular`.
+5. Remover o produto e confirmar o carrinho vazio.
+
+**Resultado observado:** `BEMVINDO10` exibiu “Cupom BEMVINDO10 aplicado.”, com subtotal de R$ 59,90, desconto de R$ 5,99, frete de R$ 19,90 e total de R$ 73,81. “Remover cupom” restaurou desconto R$ 0,00, total R$ 79,80 e o campo de cupom. `CUPOMINVALIDOQA` mostrou “Cupom inválido.”; `VERAO2026` mostrou “Cupom expirado.”. Ambos mantiveram desconto zero e total R$ 79,80. As chamadas de cálculo responderam HTTP 200. Não houve erros ou avisos no console. O carrinho foi esvaziado ao final.
+
+**Resultado esperado documentado:** CA01 define desconto de 10% sobre subtotal; CA03 prevê “Cupom inválido.” sem desconto; CA04 prevê “Cupom expirado.” sem desconto; CA05 orienta remover o cupom atual antes de aplicar outro. A análise registra `VERAO2026` como expirado em 31/03/2026.
+
+**Status:** resultados funcionais observados **conformes** com esses critérios. A sessão observou remoção do cupom, mas não tentou aplicar outro enquanto um permanecia ativo; portanto, não constitui nova execução integral de CT-05.
+
+**Evidências:** [BEMVINDO10 aplicado](../.playwright-mcp/page-2026-10-11T15-44-41-930Z.yml), [remoção do cupom](../.playwright-mcp/page-2026-10-11T15-44-45-861Z.yml), [código inexistente](../.playwright-mcp/page-2026-10-11T15-44-48-870Z.yml), [cupom expirado](../.playwright-mcp/page-2026-10-11T15-44-52-402Z.yml), [captura do resultado expirado](../.playwright-mcp/page-2026-10-11T15-44-56-562Z.png) e [carrinho vazio ao encerrar](../.playwright-mcp/page-2026-10-11T15-45-10-499Z.yml).
+
+**Relação com testes:** `e2e/cupons/01-cupom-valido.spec.ts`, `03-cupom-inexistente.spec.ts`, `04-cupom-expirado.spec.ts` e `05-apenas-um-cupom.spec.ts` cobrem os comportamentos funcionais. Console e rede foram observados diretamente no MCP; não há arquivo de log da Verzel Store em `.playwright-mcp`.
+
+### Limitações e rastreabilidade complementar
+
+- As sessões exploratórias não alteram retroativamente vereditos ou evidências históricas dos CTs.
+- O snapshot expôs os alertas e o campo inválido, mas não foi localizado requisito formal de acessibilidade nem teste automatizado específico dessas propriedades.
+- Apresentação do catálogo, detalhes, controle mínimo e estado vazio não recebem aprovação funcional sem critério suficiente.
+- Consulte a [matriz de rastreabilidade](07-matriz-rastreabilidade.md).
+

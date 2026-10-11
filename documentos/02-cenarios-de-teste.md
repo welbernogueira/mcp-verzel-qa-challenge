@@ -41,3 +41,20 @@ Esta matriz contém os 31 cenários definidos para a validação da Verzel Store
 - O detalhamento completo de pré-requisito, passos, resultado esperado, resultado obtido e evidências permanece na planilha `Cenarios_QA_Verzel_Store_Completo.xlsx`.
 - O documento `05-evidencias.md` deve ser preenchido durante a execução manual.
 - Sempre que um cenário falhar, registrar o comportamento observado e manter as evidências correspondentes.
+
+## Evidências exploratórias MCP — 11/10/2026
+
+Esta tabela registra correspondências observadas nas três sessões exploratórias com Playwright MCP. Ela não altera os vereditos históricos da matriz acima nem substitui a execução integral dos cenários. “Conforme no recorte” descreve somente os dados e passos observados.
+
+| CT | Correspondência observada | Status do recorte MCP | Evidência |
+|---|---|---|---|
+| CT-01 | `BEMVINDO10` aplicado a subtotal de R$ 59,90; desconto R$ 5,99 e mensagem de confirmação. | Conforme no recorte; histórico preservado. | [`page-2026-10-11T15-44-41-930Z.yml`](../.playwright-mcp/page-2026-10-11T15-44-41-930Z.yml) |
+| CT-03 | Código inexistente gerou “Cupom inválido.”, desconto zero e total sem desconto. | Conforme no recorte; usou-se `CUPOMINVALIDOQA`. | [`page-2026-10-11T15-44-48-870Z.yml`](../.playwright-mcp/page-2026-10-11T15-44-48-870Z.yml) |
+| CT-04 | `VERAO2026` gerou “Cupom expirado.”, desconto zero e total sem desconto. | Conforme no recorte; histórico preservado. | [`page-2026-10-11T15-44-52-402Z.yml`](../.playwright-mcp/page-2026-10-11T15-44-52-402Z.yml) |
+| CT-07 | Uma Camiseta Essencial (subtotal R$ 59,90) mostrou frete R$ 19,90 e faltante R$ 140,10. | Conforme no recorte abaixo de R$ 200; não cobre fronteiras. | [`page-2026-10-11T15-40-59-928Z.yml`](../.playwright-mcp/page-2026-10-11T15-40-59-928Z.yml) |
+| CT-13 | Para subtotal R$ 59,90, desconto zero e frete R$ 19,90, total observado foi R$ 79,80. | Fórmula compatível nesta cesta; não substitui outros exemplos. | [`page-2026-10-11T15-40-59-928Z.yml`](../.playwright-mcp/page-2026-10-11T15-40-59-928Z.yml) |
+| CT-27 | Quantidade 5 exibida; aumentar desabilitado e mensagem do limite presente. | Conforme no recorte; ver teste E2E correspondente. | [`page-2026-10-11T15-41-10-044Z.yml`](../.playwright-mcp/page-2026-10-11T15-41-10-044Z.yml) |
+| CT-28 | `GET /api/produtos` respondeu 200 com P001 a P008; dados visíveis coincidiram com a tabela de teste. | Conforme no recorte; não é nova execução automatizada. | [`page-2026-10-11T15-33-09-021Z.yml`](../.playwright-mcp/page-2026-10-11T15-33-09-021Z.yml) |
+| CT-30 | Valores da interface e da resposta API coincidiram para uma camiseta com `BEMVINDO10`. | Correspondência em uma cesta; escopo amplo permanece pendente. | [`page-2026-10-11T15-44-41-930Z.yml`](../.playwright-mcp/page-2026-10-11T15-44-41-930Z.yml) |
+
+Catálogo pela interface, detalhes de produto, quantidade mínima pela interface, remoção do último produto e estado vazio não recebem veredito nesta matriz: não foi localizado critério de aceitação suficiente para aprová-los. Consulte o [registro exploratório](04-execucao-testes-manuais-verzel-store.md).

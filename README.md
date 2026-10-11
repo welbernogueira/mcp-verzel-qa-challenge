@@ -290,6 +290,10 @@ A suíte em `backend-test/` cobre:
 Os cenários manuais, resultados e evidências complementares estão em
 `documentos/`.
 
+A matriz de rastreabilidade entre requisitos, cenários, evidências e testes
+automatizados está em
+[`documentos/07-matriz-rastreabilidade.md`](documentos/07-matriz-rastreabilidade.md).
+
 ### Cenários documentados em Gherkin
 
 O projeto também contém o documento

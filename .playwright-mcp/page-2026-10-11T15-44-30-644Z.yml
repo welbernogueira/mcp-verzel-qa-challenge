@@ -1,0 +1,36 @@
+- generic [ref=f2e2]:
+  - note [ref=f2e3]:
+    - paragraph [ref=f2e4]:
+      - text: Ambiente de teste técnico do processo seletivo de QA da Verzel.
+      - link "Leia a documentação antes de começar." [ref=f2e5] [cursor=pointer]:
+        - /url: /documentacao
+  - banner [ref=f2e6]:
+    - generic [ref=f2e7]:
+      - link "Verzel Store, página inicial" [ref=f2e8] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f2e9]:
+          - generic [ref=f2e15]: verzel
+          - generic [ref=f2e16]: store
+      - navigation "Principal" [ref=f2e17]:
+        - link "Produtos" [ref=f2e18] [cursor=pointer]:
+          - /url: /
+        - link "Documentação" [ref=f2e19] [cursor=pointer]:
+          - /url: /documentacao
+        - link "Carrinho 0 itens no carrinho" [ref=f2e20] [cursor=pointer]:
+          - /url: /carrinho
+          - text: Carrinho
+          - generic "0 itens no carrinho" [ref=f2e21]: "0"
+  - main [ref=f2e22]:
+    - generic [ref=f2e25]:
+      - heading "Frete grátis a partir de R$ 200,00." [level=1] [ref=f2e26]
+      - paragraph [ref=f2e27]:
+        - text: E na primeira compra, o cupom
+        - strong [ref=f2e28]: BEMVINDO10
+        - text: dá 10% de desconto nos produtos.
+      - link "Ver as regras da promoção" [ref=f2e29] [cursor=pointer]:
+        - /url: /documentacao
+    - region [ref=f2e35]:
+      - heading "Produtos" [level=2] [ref=f2e36]
+      - paragraph [ref=f2e37]: Carregando produtos...
+  - contentinfo [ref=f2e38]:
+    - paragraph [ref=f2e40]: Verzel Store é um ambiente fictício criado para o teste técnico do processo seletivo de QA da Verzel. Nenhuma compra é real.

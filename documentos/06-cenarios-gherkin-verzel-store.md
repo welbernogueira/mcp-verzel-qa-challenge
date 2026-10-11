@@ -372,6 +372,62 @@ Cenário: Não compartilhar itens do carrinho entre abas
 
 ---
 
+## Propostas exploratórias assistidas por MCP — 11/10/2026
+
+> Os cenários desta seção são propostas documentais, não requisitos formalmente aprovados nem testes executáveis. Os critérios de apresentação visual e acessibilidade precisam de validação do responsável pelo produto. Os cenários funcionais de aplicação de cupom já descritos acima não são repetidos.
+
+### Funcionalidade: Apresentação exploratória do catálogo
+
+**Classificação:** exploratório. A lista P001–P008 e seus preços consta como dado de teste em `00-analise-do-desafio.md`, mas não foi localizado critério específico para a apresentação pela interface.
+
+```gherkin
+Funcionalidade: Apresentação do catálogo na interface
+  Contexto:
+    Dado que o ambiente de QA da Verzel Store está disponível
+
+  Cenário: Conferir os produtos e preços apresentados na vitrine
+    Quando acesso a página inicial
+    Então observo os cartões dos produtos P001 a P008
+    E comparo os nomes e preços exibidos com os dados de teste documentados
+    E registro como pendente qualquer expectativa de detalhes sem requisito formal
+```
+
+### Funcionalidade: Estado exploratório do carrinho após remoção
+
+**Classificação:** exploratório. Não foi localizado CT ou requisito formal para o estado visual após remover o último produto. A observação está registrada em `04-execucao-testes-manuais-verzel-store.md`.
+
+```gherkin
+Funcionalidade: Remoção do último produto do carrinho
+  Contexto:
+    Dado que há somente um produto no carrinho
+
+  Cenário: Observar o carrinho após remover o único produto
+    Quando removo esse produto pelo controle da interface
+    Então observo se o carrinho apresenta o estado vazio
+    E registro o resultado sem classificá-lo como aprovado até haver critério de aceitação
+```
+
+### Funcionalidade: Semântica acessível das mensagens de cupom
+
+**Classificação:** proposta exploratória de acessibilidade. CA03 e CA04 definem o conteúdo das mensagens, mas não foi localizado requisito formal sobre papel ARIA ou estado acessível do campo.
+
+```gherkin
+Funcionalidade: Anúncio acessível de erros de cupom
+  Contexto:
+    Dado que há um produto no carrinho
+
+  Esquema do Cenário: Anunciar uma mensagem de cupom não aplicável
+    Quando tento aplicar o cupom "<cupom>"
+    Então a mensagem "<mensagem>" é exposta como alerta na árvore de acessibilidade
+    E o campo de cupom é exposto como inválido
+    E registro a conformidade funcional separadamente da validação formal de acessibilidade
+
+  Exemplos:
+    | cupom           | mensagem          |
+    | CUPOMINVALIDOQA | Cupom inválido.   |
+    | VERAO2026       | Cupom expirado.   |
+```
+
 ## Rastreabilidade dos defeitos
 
 | Cenário manual | Defeito | Resultado real |

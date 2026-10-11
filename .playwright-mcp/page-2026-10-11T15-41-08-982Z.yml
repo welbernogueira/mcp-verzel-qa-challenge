@@ -1,0 +1,64 @@
+- generic [ref=f1e2]:
+  - note [ref=f1e3]:
+    - paragraph [ref=f1e4]:
+      - text: Ambiente de teste técnico do processo seletivo de QA da Verzel.
+      - link "Leia a documentação antes de começar." [ref=f1e5] [cursor=pointer]:
+        - /url: /documentacao
+  - banner [ref=f1e6]:
+    - generic [ref=f1e7]:
+      - link "Verzel Store, página inicial" [ref=f1e8] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f1e9]:
+          - generic [ref=f1e15]: verzel
+          - generic [ref=f1e16]: store
+      - navigation "Principal" [ref=f1e17]:
+        - link "Produtos" [ref=f1e18] [cursor=pointer]:
+          - /url: /
+        - link "Documentação" [ref=f1e19] [cursor=pointer]:
+          - /url: /documentacao
+        - link "Carrinho 4 itens no carrinho" [ref=f1e206] [cursor=pointer]:
+          - /url: /carrinho
+          - text: Carrinho
+          - generic "4 itens no carrinho" [ref=f1e207]: "4"
+  - main [ref=f1e22]:
+    - generic [ref=f1e157]:
+      - generic [ref=f1e158]:
+        - heading "Carrinho" [level=1] [ref=f1e159]
+        - button "Esvaziar carrinho" [ref=f1e160] [cursor=pointer]
+      - generic [ref=f1e161]:
+        - generic [ref=f1e162]:
+          - list [ref=f1e163]:
+            - listitem [ref=f1e164]:
+              - generic [ref=f1e170]:
+                - heading "Camiseta Essencial" [level=3] [ref=f1e171]
+                - paragraph [ref=f1e172]: R$ 59,90 cada
+              - group "Quantidade de Camiseta Essencial" [ref=f1e173]:
+                - button "Diminuir quantidade de Camiseta Essencial" [ref=f1e174] [cursor=pointer]: "-"
+                - status "Quantidade de Camiseta Essencial" [ref=f1e175]: "4"
+                - button "Aumentar quantidade de Camiseta Essencial" [active] [ref=f1e176] [cursor=pointer]: +
+              - paragraph [ref=f1e177]: R$ 239,60
+              - button "Remover Camiseta Essencial do carrinho" [ref=f1e178] [cursor=pointer]: Remover
+          - generic [ref=f1e179]:
+            - generic [ref=f1e180]: Cupom de desconto
+            - generic [ref=f1e181]:
+              - textbox "Cupom de desconto" [ref=f1e182]
+              - button "Aplicar cupom" [ref=f1e183] [cursor=pointer]
+        - region [ref=f1e185]:
+          - heading "Resumo do pedido" [level=2] [ref=f1e186]
+          - generic [ref=f1e187]:
+            - generic [ref=f1e188]:
+              - term [ref=f1e189]: Subtotal
+              - definition [ref=f1e190]: R$ 239,60
+            - generic [ref=f1e191]:
+              - term [ref=f1e192]: Desconto
+              - definition [ref=f1e193]: R$ 0,00
+            - generic [ref=f1e194]:
+              - term [ref=f1e195]: Frete
+              - definition [ref=f1e196]: Grátis
+            - generic [ref=f1e197]:
+              - term [ref=f1e198]: Total
+              - definition [ref=f1e199]: R$ 239,60
+          - link "Finalizar compra" [ref=f1e201] [cursor=pointer]:
+            - /url: /checkout
+  - contentinfo [ref=f1e152]:
+    - paragraph [ref=f1e154]: Verzel Store é um ambiente fictício criado para o teste técnico do processo seletivo de QA da Verzel. Nenhuma compra é real.

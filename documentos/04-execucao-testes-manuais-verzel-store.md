@@ -112,10 +112,12 @@ Validar CA02.
 
 ![alt text](image-12.png)
 
+![alt text](image-18.png)
+
 ![alt text](image-16.png)
 
 
-![alt text](image-18.png)
+
 
 ]_
 

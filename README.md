@@ -306,6 +306,17 @@ A suíte em `backend-test/` cobre:
 Os cenários manuais, resultados e evidências complementares estão em
 `documentos/`.
 
+### Cenários documentados em Gherkin
+
+O projeto também contém o documento
+[`06-cenarios-gherkin-verzel-store.md`](https://github.com/welbernogueira/verzel-qa-challenge/blob/main/documentos/06-cenarios-gherkin-verzel-store.md),
+com cenários descritos em estilo Gherkin para facilitar a leitura dos
+comportamentos esperados e a rastreabilidade dos testes.
+
+**Observação:** esse arquivo é uma documentação em Markdown com sintaxe
+inspirada em Gherkin; ele não é, por si só, um arquivo `.feature` executável
+nem representa uma integração ativa com Cucumber.
+
 ## Tratativas de bugs e evidências
 
 Os defeitos identificados e suas tratativas estão documentados nos

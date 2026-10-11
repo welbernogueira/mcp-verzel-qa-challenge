@@ -1325,3 +1325,74 @@ A chamada `GET /api/produtos` retornou HTTP 200 com P001 a P008. Os cartões nã
 - Apresentação do catálogo, detalhes, controle mínimo e estado vazio não recebem aprovação funcional sem critério suficiente.
 - Consulte a [matriz de rastreabilidade](07-matriz-rastreabilidade.md).
 
+## Cenários complementares em Gherkin
+
+> Esta seção complementa a rastreabilidade sem reproduzir os cenários já escritos em `06-cenarios-gherkin-verzel-store.md`. Os vereditos históricos permanecem nos CTs acima. Cenários exploratórios e propostas não são requisitos formais nem recebem aprovação por terem sido expressos em Gherkin.
+
+### Cenários Gherkin acrescentados
+
+#### Cenário Gherkin complementar — cálculo oficial de cupom pela API (CT-29)
+
+**Resultado esperado:** HTTP 200; subtotal de R$ 239,70; desconto de R$ 23,97; frete de R$ 0,00; `freteGratis=true`; `valorFaltanteFreteGratis=R$ 0,00`; total de R$ 215,73; cupom aplicado.
+
+**Origem:** CT-29 deste documento, com resultado histórico registrado como APROVADO/PASSOU. Não foi localizada evidência exploratória MCP para este exemplo oficial.
+
+**Automação relacionada:** `backend-test/carrinho/04-calcular-carrinho.spec.ts` cobre um cálculo válido com outra cesta; `e2e/cupons/11-arredondamento-2-casas.spec.ts` cobre cálculo de cupom para P001. Não foi localizado teste automatizado que reproduza exatamente a cesta e os valores oficiais de CT-29.
+
+```gherkin
+Funcionalidade: Cálculo oficial de cupom pela API
+
+  Cenário: Calcular o exemplo oficial com BEMVINDO10
+    Dado que a API de cálculo está disponível
+    Quando envio P002 com quantidade 1, P004 com quantidade 2 e o cupom "BEMVINDO10"
+    Então a API retorna HTTP 200
+    E o subtotal é R$ 239,70
+    E o desconto é R$ 23,97
+    E o frete é R$ 0,00 e o frete grátis está ativo
+    E o valor faltante para frete grátis é R$ 0,00
+    E o total é R$ 215,73
+    E o cupom consta como aplicado
+```
+
+#### Cenário Gherkin complementar — paridade entre interface e API (CT-30)
+
+**Resultado esperado:** os valores da interface e da API são iguais para o mesmo conjunto de produtos, quantidades e cupom.
+
+**Origem:** CT-30 deste documento, com resultado histórico registrado como APROVADO/PASSOU. A sessão MCP de cupons observou valores coincidentes para uma camiseta com `BEMVINDO10`; a resposta de rede foi consultada, mas não foi salva como arquivo de evidência. Essa amostra não substitui a execução integral de CT-30.
+
+**Automação relacionada:** não foi localizado teste automatizado dedicado à comparação entre os valores apresentados pela interface e os retornados pela API.
+
+```gherkin
+Funcionalidade: Consistência entre a interface e a API de cálculo
+
+  Cenário: Comparar os valores para a mesma cesta e o mesmo cupom
+    Dado que a interface e a API de cálculo estão disponíveis
+    E que registrei os produtos, quantidades e cupom de uma mesma cesta na interface
+    Quando solicito o cálculo da API com esses mesmos dados
+    Então a API retorna subtotal, desconto, frete, indicador de frete grátis, valor faltante e total
+    E cada valor retornado é igual ao valor apresentado pela interface
+```
+
+### Referências aos cenários Gherkin já documentados
+
+Os cenários abaixo já constam em `06-cenarios-gherkin-verzel-store.md`; são referenciados aqui em vez de copiados. Os CTs conservam os vereditos apresentados nas seções históricas deste documento.
+
+| Tema | Referência manual e Gherkin existente | Origem e evidência | Automação relacionada |
+|---|---|---|---|
+| Cupom válido, variações de caixa, cupom inexistente, expirado e troca/remoção | CT-01 a CT-05; cenários homônimos em `06-cenarios-gherkin-verzel-store.md` | CTs deste documento; evidências das sessões de 11/10/2026: [cupom válido](../.playwright-mcp/page-2026-10-11T15-44-41-930Z.yml), [remoção do cupom](../.playwright-mcp/page-2026-10-11T15-44-45-861Z.yml), [inexistente](../.playwright-mcp/page-2026-10-11T15-44-48-870Z.yml) e [expirado](../.playwright-mcp/page-2026-10-11T15-44-52-402Z.yml). A sessão não tentou aplicar um segundo cupom enquanto o primeiro permanecia ativo. | `e2e/cupons/01-cupom-valido.spec.ts` a `05-apenas-um-cupom.spec.ts`; CT-05 não foi integralmente reexplorado pelo MCP. |
+| Frete, desconto, arredondamento e fórmula do total | CT-06 a CT-09, CT-12, CT-13 e CT-24 a CT-26; cenários correspondentes em `06-cenarios-gherkin-verzel-store.md` | Resultados manuais registrados nos respectivos CTs. O recorte MCP de uma unidade está em [carrinho com uma unidade](../.playwright-mcp/page-2026-10-11T15-40-59-928Z.yml); não cobre as fronteiras do frete nem substitui os demais CTs. | `e2e/cupons/06-frete-gratis-a-partir-200.spec.ts` a `09-desconto-nao-incide-frete.spec.ts`; `e2e/cupons/11-arredondamento-2-casas.spec.ts`. |
+| Validações de itens e quantidades pela API | CT-10, CT-11, CT-14, CT-15.1, CT-16 e CT-17; cenários correspondentes em `06-cenarios-gherkin-verzel-store.md` | CTs deste documento. CT-11 e CT-15.1 permanecem falhas históricas vinculadas aos bugs já registrados; não foram reclassificados aqui. | `backend-test/carrinho/05-itens-obrigatorios.spec.ts` a `11-quantidade-maxima.spec.ts`, conforme o cenário; `backend-test/carrinho/07-item-invalido.spec.ts`. |
+| Limite de cinco unidades na interface | CT-27; cenário CT-27 em `06-cenarios-gherkin-verzel-store.md` | [Carrinho com cinco unidades](../.playwright-mcp/page-2026-10-11T15-41-10-044Z.yml) e [captura](../.playwright-mcp/page-2026-10-11T15-41-12-534Z.png). | `e2e/cupons/10-limite-5-unidades.spec.ts`. |
+| Catálogo pela API e dados de produtos | CT-22 e CT-28; cenário combinado em `06-cenarios-gherkin-verzel-store.md`. A proposta “Apresentação exploratória do catálogo” também consta nesse documento. | [Snapshot do catálogo](../.playwright-mcp/page-2026-10-11T15-33-09-021Z.yml). A apresentação dos oito produtos pela interface é exploratória, sem critério formal localizado. | `backend-test/produtos/01-listar-produtos.spec.ts` e `02-consultar-produto.spec.ts`; a apresentação visual é coberta pelo novo `e2e/catalogo/01-apresentacao-catalogo.spec.ts`, ainda exploratório. |
+| Remoção do último produto e carrinho vazio | Proposta exploratória “Estado exploratório do carrinho após remoção” em `06-cenarios-gherkin-verzel-store.md`; sem CT formal correspondente | [Snapshot do estado vazio após remoção](../.playwright-mcp/page-2026-10-11T15-41-22-581Z.yml). Estado observado, sem critério formal de aceitação. | `e2e/carrinho/01-remover-ultimo-produto.spec.ts`, identificado no teste como cobertura exploratória. |
+| Semântica acessível dos erros de cupom | Proposta exploratória “Semântica acessível das mensagens de cupom” em `06-cenarios-gherkin-verzel-store.md`; CT-03 e CT-04 cobrem somente o comportamento funcional | Snapshots de [cupom inexistente](../.playwright-mcp/page-2026-10-11T15-44-48-870Z.yml) e [cupom expirado](../.playwright-mcp/page-2026-10-11T15-44-52-402Z.yml) mostraram alertas e campo inválido. Não foi localizado critério formal de acessibilidade. | `e2e/cupons/03-cupom-inexistente.spec.ts` e `04-cupom-expirado.spec.ts` incluem verificações propostas de papel `alert` e `aria-invalid`; isso não converte a proposta em requisito formal. |
+| Pedidos, dados do cliente, erros HTTP e isolamento do carrinho | CT-18 a CT-21, CT-23 e CT-31; cenários correspondentes em `06-cenarios-gherkin-verzel-store.md` | CTs deste documento; sem nova evidência MCP para esses fluxos. | Testes existentes em `e2e/checkout/` e `backend-test/pedidos/`/`backend-test/http/`, conforme o fluxo. |
+
+### Limitações que permanecem
+
+- Catálogo visual, detalhes de produto, remoção do último item e estado vazio não têm critério formal de aceitação localizado; suas descrições permanecem exploratórias.
+- A semântica acessível de mensagens de cupom e o estado inválido do campo são propostas de cobertura, não critérios aprovados.
+- CT-29 e CT-30 têm cenários Gherkin neste documento, mas não foi localizado teste automatizado que reproduza exatamente o exemplo oficial de CT-29 ou compare interface e API para CT-30.
+- CT-15 não tem cenário Gherkin próprio em `06-cenarios-gherkin-verzel-store.md`. Como sua descrição ampla se sobrepõe a CT-15.1, que registra um defeito para item vazio, não foi criada uma nova formulação sem dados que distingam os dois casos.
+- O cenário CT-15.1 e os defeitos registrados permanecem conforme os resultados históricos; esta seção não altera bugs, vereditos ou evidências anteriores.
+

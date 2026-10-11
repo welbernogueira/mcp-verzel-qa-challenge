@@ -38,34 +38,18 @@ combinando testes manuais e automatizados.
 
 ## Tecnologias e ferramentas
 
-  -----------------------------------------------------------------------
-  Tecnologia/ferramenta              Utilização
-  ---------------------------------- ------------------------------------
-  Node.js                            Ambiente de execução dos testes
+| Tecnologia/ferramenta | Utilização |
+|---|---|
+| **Node.js** | Ambiente de execução dos testes |
+| **npm** | Instalação e gerenciamento de dependências |
+| **Playwright Test** | Execução e organização dos testes automatizados |
+| **TypeScript** | Linguagem utilizada nos arquivos de teste |
+| **Chromium** | Navegador utilizado para executar a suíte |
+| **Relatório HTML do Playwright** | Consulta dos resultados das execuções |
+| **Git e GitHub** | Versionamento e hospedagem do projeto |
+| **GitHub Actions** | Pipeline de automação definida em `.github/workflows/playwright.yml` |
+| **Chrome DevTools Console** | Execução manual de requisições à API e inspeção das respostas |
 
-  npm                                Instalação e gerenciamento de
-                                     dependências
-
-  Playwright Test                    Execução e organização dos testes
-                                     automatizados
-
-  TypeScript                         Linguagem utilizada nos arquivos de
-                                     teste
-
-  Chromium                           Navegador usado para executar a
-                                     suíte
-
-  Relatório HTML do Playwright       Consulta dos resultados de execução
-
-  Git e GitHub                       Versionamento e hospedagem do
-                                     projeto
-
-  GitHub Actions                     Pipeline de automação definido em
-                                     `.github/workflows/playwright.yml`
-
-  Chrome DevTools Console            Execução dos testes manuais de API e
-                                     inspeção de respostas
-  -----------------------------------------------------------------------
 
 ## Pré-requisitos
 

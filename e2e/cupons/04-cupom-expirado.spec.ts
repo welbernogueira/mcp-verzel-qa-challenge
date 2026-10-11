@@ -39,10 +39,9 @@ test.describe('CA04 - Rejeitar cupom expirado', () => {
       .getByRole('button', { name: /aplicar cupom/i })
       .click();
 
-    // Valida mensagem de cupom expirado
-    await expect(
-      page.getByText('Cupom expirado.')
-    ).toBeVisible();
+    // Cobertura de acessibilidade proposta: CA04 ainda não formaliza estes critérios.
+    await expect(page.getByRole('alert')).toHaveText('Cupom expirado.');
+    await expect(campoCupom).toHaveAttribute('aria-invalid', 'true');
 
     // Valida que nenhum desconto foi aplicado
     await expect(

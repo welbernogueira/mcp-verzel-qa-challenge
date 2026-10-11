@@ -39,10 +39,9 @@ test.describe('CA03 - Rejeitar cupom inexistente', () => {
       .getByRole('button', { name: /aplicar cupom/i })
       .click();
 
-    // Valida mensagem de erro
-    await expect(
-      page.getByText('Cupom inválido.')
-    ).toBeVisible();
+    // Cobertura de acessibilidade proposta: CA03 ainda não formaliza estes critérios.
+    await expect(page.getByRole('alert')).toHaveText('Cupom inválido.');
+    await expect(campoCupom).toHaveAttribute('aria-invalid', 'true');
 
     // Valida que nenhum desconto foi aplicado
     await expect(

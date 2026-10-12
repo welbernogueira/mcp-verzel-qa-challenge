@@ -298,7 +298,10 @@ Validar CA07.
 **Evidências:**
 
 >
-> _[![alt text](image-30.png)i]_
+> _[
+
+![alt text](image-23.png)
+]_
 
 ---
 

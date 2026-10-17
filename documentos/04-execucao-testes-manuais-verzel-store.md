@@ -10,7 +10,7 @@
 - **Card:** VZS-142
 - **Versão:** 2.3.0
 - **Ambiente:** QA
-- **Status inicial:** PENDENTE
+- **Status da execução:** CONCLUÍDA COM FALHAS REGISTRADAS
 
 ## Convenção de execução
 
@@ -52,20 +52,30 @@ Validar CA01.
 **Evidências:**
 
 
-> **Evidências:**
->
-> _[![alt text](image-1.png)
+<figure align="center">
+  <img src="CT-01-cupom-valido-evidencia-01.png" alt="CT-01 — cupom-valido — evidência 01" width="85%">
+  <figcaption><strong>CT-01 · cupom-valido · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-3.png)
+<figure align="center">
+  <img src="CT-01-cupom-valido-evidencia-02.png" alt="CT-01 — cupom-valido — evidência 02" width="85%">
+  <figcaption><strong>CT-01 · cupom-valido · evidência 02</strong></figcaption>
+</figure>
 
-![alt text](image-4.png)
+<figure align="center">
+  <img src="CT-01-cupom-valido-evidencia-03.png" alt="CT-01 — cupom-valido — evidência 03" width="85%">
+  <figcaption><strong>CT-01 · cupom-valido · evidência 03</strong></figcaption>
+</figure>
 
-![alt text](image-5.png)
+<figure align="center">
+  <img src="CT-01-cupom-valido-evidencia-04.png" alt="CT-01 — cupom-valido — evidência 04" width="85%">
+  <figcaption><strong>CT-01 · cupom-valido · evidência 04</strong></figcaption>
+</figure>
 
-![alt text](image-6.png)
-
-
-]_
+<figure align="center">
+  <img src="CT-01-cupom-valido-evidencia-05.png" alt="CT-01 — cupom-valido — evidência 05" width="85%">
+  <figcaption><strong>CT-01 · cupom-valido · evidência 05</strong></figcaption>
+</figure>
 ---
 
 ## CT-02 — Aceitar cupom com maiúsculas/minúsculas e espaços nas extremidades
@@ -98,29 +108,45 @@ Validar CA02.
 **Evidências:**
 
 
-> **Evidências:**
->
-> _[![alt text](image-7.png)
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-01.png" alt="CT-02 — variacoes-cupom — evidência 01" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-8.png)
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-02.png" alt="CT-02 — variacoes-cupom — evidência 02" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 02</strong></figcaption>
+</figure>
 
-![alt text](image-9.png)
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-03.png" alt="CT-02 — variacoes-cupom — evidência 03" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 03</strong></figcaption>
+</figure>
 
-![alt text](image-10.png)
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-04.png" alt="CT-02 — variacoes-cupom — evidência 04" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 04</strong></figcaption>
+</figure>
 
-![alt text](image-11.png)
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-05.png" alt="CT-02 — variacoes-cupom — evidência 05" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 05</strong></figcaption>
+</figure>
 
-![alt text](image-12.png)
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-06.png" alt="CT-02 — variacoes-cupom — evidência 06" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 06</strong></figcaption>
+</figure>
 
-![alt text](image-18.png)
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-07.png" alt="CT-02 — variacoes-cupom — evidência 07" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 07</strong></figcaption>
+</figure>
 
-![alt text](image-16.png)
-
-
-
-
-]_
-
+<figure align="center">
+  <img src="CT-02-variacoes-cupom-evidencia-08.png" alt="CT-02 — variacoes-cupom — evidência 08" width="85%">
+  <figcaption><strong>CT-02 · variacoes-cupom · evidência 08</strong></figcaption>
+</figure>
 ---
 
 ## CT-03 — Rejeitar cupom inexistente
@@ -151,8 +177,10 @@ Validar CA03.
 
 **Evidências:**
 
-> _[![alt text](image-19.png)]_
-
+<figure align="center">
+  <img src="CT-03-cupom-inexistente-evidencia-01.png" alt="CT-03 — cupom-inexistente — evidência 01" width="85%">
+  <figcaption><strong>CT-03 · cupom-inexistente · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-04 — Rejeitar cupom expirado
@@ -184,8 +212,10 @@ Validar CA04.
 **Evidências:**
 
 
-> _[![alt text](image-20.png)]_
-
+<figure align="center">
+  <img src="CT-04-cupom-expirado-evidencia-01.png" alt="CT-04 — cupom-expirado — evidência 01" width="85%">
+  <figcaption><strong>CT-04 · cupom-expirado · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-05 — Impedir aplicação simultânea de mais de um cupom
@@ -217,21 +247,20 @@ Validar CA05.
 
 **Evidências:**
 
->
-> _[
-    ![alt text](image-21.png)
-    
-![alt text](image-22.png)
+<figure align="center">
+  <img src="CT-05-cupom-unico-evidencia-01.png" alt="CT-05 — cupom-unico — evidência 01" width="85%">
+  <figcaption><strong>CT-05 · cupom-unico · evidência 01</strong></figcaption>
+</figure>
 
-]_
-
-
-
+<figure align="center">
+  <img src="CT-05-cupom-unico-evidencia-02.png" alt="CT-05 — cupom-unico — evidência 02" width="85%">
+  <figcaption><strong>CT-05 · cupom-unico · evidência 02</strong></figcaption>
+</figure>
 ---
 
 ## CT-06 — Frete grátis no limite de R$ 200,00
 
-**Pré-requisito:** Carrinho com subtotal exatamente R$ 200,00.
+**Pré-requisito:** Carrinho vazio; produto P005 (Mochila Urbana 20L) disponível.
 
 **Prioridade:** CRÍTICA
 
@@ -239,17 +268,18 @@ Validar CA05.
 
 **Passos:**
 
-1. Montar subtotal de R$ 200,00. 2. Calcular.
+1. Adicionar duas unidades da Mochila Urbana 20L (P005, R$ 100,00 cada).
+2. Abrir o carrinho e conferir subtotal, frete, valor faltante e total.
 
 **Resultado esperado:**
 
-Frete R$ 0,00 e valor faltante R$ 0,00.
+Subtotal R$ 200,00; frete R$ 0,00; `freteGratis=true`; valor faltante R$ 0,00; total R$ 200,00.
 
 **Resultado obtido:**
 
-Frete R$ 0,00 e valor faltante R$ 0,00.
+Subtotal R$ 200,00; frete R$ 19,90; `freteGratis=false`; valor faltante exibido como R$ 0,00; total R$ 219,90.
 
-**Veredito:** APROVADO/PASSOU
+**Veredito:** REPROVADO/NÃO PASSOU
 
 **Descrição:**
 
@@ -257,14 +287,19 @@ Validar CA06.
 
 **Evidências:**
 
->
-> _[
-    ![alt text](image-23.png)
+<figure align="center">
+  <img src="CT-06-frete-limite-exato-200-ui-01.png" alt="CT-06: duas mochilas totalizam R$ 200,00, mas a interface cobra frete de R$ 19,90" width="85%">
+  <figcaption><strong>CT-06 · Subtotal exato de R$ 200,00 com frete cobrado</strong></figcaption>
+</figure>
 
-!![alt text](image-29.png)
+<figure align="center">
+  <img src="BUG-CA06-API-001-01-subtotal-200-frete-cobrado-api.png" alt="Resposta da API para duas mochilas: subtotal 200, frete 19,9 e freteGratis falso" width="85%">
+  <figcaption><strong>CT-06 · Resposta da API para a mesma cesta (captura da exploração original)</strong></figcaption>
+</figure>
 
+Requisição e resposta identificadas como CT-06 e capturadas em 17/10/2026: [BUG-CA06-API-001-request-response.json](../evidencias/BUG-CA06-API-001-request-response.json).
 
-]_
+O defeito está registrado em [`BUG-CA06-API-001`](../bugs/BUG-CA06-API-001-frete-no-limite.md).
 
 
 ---
@@ -297,9 +332,10 @@ Validar CA07.
 
 **Evidências:**
 
->
-> _[![alt text](image-30.png)i]_
-
+<figure align="center">
+  <img src="CT-07-frete-abaixo-limite-evidencia-01.png" alt="CT-07 — frete-abaixo-limite — evidência 01" width="85%">
+  <figcaption><strong>CT-07 · frete-abaixo-limite · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-08 — Frete considera subtotal antes do desconto
@@ -331,12 +367,15 @@ Validar CA08.
 
 **Evidências:**
 
->
-> _[![alt text](image-31.png)
+<figure align="center">
+  <img src="CT-08-frete-antes-desconto-evidencia-01.png" alt="CT-08 — frete-antes-desconto — evidência 01" width="85%">
+  <figcaption><strong>CT-08 · frete-antes-desconto · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-32.png)]_
-
-
+<figure align="center">
+  <img src="CT-08-frete-antes-desconto-evidencia-02.png" alt="CT-08 — frete-antes-desconto — evidência 02" width="85%">
+  <figcaption><strong>CT-08 · frete-antes-desconto · evidência 02</strong></figcaption>
+</figure>
 ---
 
 ## CT-09 — Desconto não incide sobre o frete
@@ -367,10 +406,10 @@ Validar CA09.
 
 **Evidências:**
 
->
-> _[![alt text](image-33.png)]_
-
-
+<figure align="center">
+  <img src="CT-09-desconto-sem-frete-evidencia-01.png" alt="CT-09 — desconto-sem-frete — evidência 01" width="85%">
+  <figcaption><strong>CT-09 · desconto-sem-frete · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-10 — Rejeitar quantidade inválida
@@ -401,10 +440,10 @@ Validar regra de quantidade.
 
 **Evidências:**
 
->
-> _[![alt text](image-37.png)]_
-
-
+<figure align="center">
+  <img src="CT-10-quantidade-invalida-evidencia-01.png" alt="CT-10 — quantidade-invalida — evidência 01" width="85%">
+  <figcaption><strong>CT-10 · quantidade-invalida · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-11 — Rejeitar quantidade superior a 5 - Bug na API - Validação Manual
@@ -436,15 +475,22 @@ Validar CA10.
 **Evidências:**
 
 
->
-> _[![alt text](image-34.png)
+<figure align="center">
+  <img src="CT-11-quantidade-acima-limite-api-evidencia-01.png" alt="CT-11 — quantidade-acima-limite-api — evidência 01" width="85%">
+  <figcaption><strong>CT-11 · quantidade-acima-limite-api · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-35.png)
+<figure align="center">
+  <img src="CT-11-quantidade-acima-limite-api-evidencia-02.png" alt="CT-11 — quantidade-acima-limite-api — evidência 02" width="85%">
+  <figcaption><strong>CT-11 · quantidade-acima-limite-api · evidência 02</strong></figcaption>
+</figure>
 
-![alt text](image-36.png)]_
+<figure align="center">
+  <img src="CT-11-quantidade-acima-limite-api-evidencia-03.png" alt="CT-11 — quantidade-acima-limite-api — evidência 03" width="85%">
+  <figcaption><strong>CT-11 · quantidade-acima-limite-api · evidência 03</strong></figcaption>
+</figure>
 
--> Encontramos um bug, deveria retornar outra exception, mas retornou 200 OK. Esse erro já foi reportado e será indicado com mais detalhes onde ser consultado no readme.
-
+O defeito está registrado em [`BUG-CA10-API-001`](../bugs/BUG-CA10-API-001-limite-quantidade.md).
 ---
 
 ## CT-12 — Arredondar valores monetários para 2 casas
@@ -476,15 +522,20 @@ Validar CA11.
 **Evidências:**
 
 
->
-> _[![alt text](image-38.png)
+<figure align="center">
+  <img src="CT-12-arredondamento-evidencia-01.png" alt="CT-12 — arredondamento — evidência 01" width="85%">
+  <figcaption><strong>CT-12 · arredondamento · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-39.png)
+<figure align="center">
+  <img src="CT-12-arredondamento-evidencia-02.png" alt="CT-12 — arredondamento — evidência 02" width="85%">
+  <figcaption><strong>CT-12 · arredondamento · evidência 02</strong></figcaption>
+</figure>
 
-![alt text](image-40.png)
-
-]_
-
+<figure align="center">
+  <img src="CT-12-arredondamento-evidencia-03.png" alt="CT-12 — arredondamento — evidência 03" width="85%">
+  <figcaption><strong>CT-12 · arredondamento · evidência 03</strong></figcaption>
+</figure>
 ---
 
 ## CT-13 — Validar fórmula do total
@@ -516,14 +567,15 @@ Validar consistência do cálculo.
 **Evidências:**
 
 
->
-> _[C![alt text](image-41.png)
+<figure align="center">
+  <img src="CT-13-formula-total-evidencia-01.png" alt="CT-13 — formula-total — evidência 01" width="85%">
+  <figcaption><strong>CT-13 · formula-total · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-42.png)
-
-]_
-
-
+<figure align="center">
+  <img src="CT-13-formula-total-evidencia-02.png" alt="CT-13 — formula-total — evidência 02" width="85%">
+  <figcaption><strong>CT-13 · formula-total · evidência 02</strong></figcaption>
+</figure>
 ---
 
 ## CT-14 — Rejeitar itens ausentes ou vazios
@@ -554,13 +606,15 @@ Validar contrato da API.
 
 **Evidências:**
 
->
-> _[![alt text](image-45.png)
+<figure align="center">
+  <img src="CT-14-itens-ausentes-vazios-evidencia-01.png" alt="CT-14 — itens-ausentes-vazios — evidência 01" width="85%">
+  <figcaption><strong>CT-14 · itens-ausentes-vazios · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-46.png)]_
-
-
-
+<figure align="center">
+  <img src="CT-14-itens-ausentes-vazios-evidencia-02.png" alt="CT-14 — itens-ausentes-vazios — evidência 02" width="85%">
+  <figcaption><strong>CT-14 · itens-ausentes-vazios · evidência 02</strong></figcaption>
+</figure>
 ---
 
 ## CT-15 — Rejeitar item inválido - Cenário Feliz
@@ -592,9 +646,10 @@ Validar estrutura mínima do item.
 
 **Evidências:**
 
->
-> _[![alt text](image-48.png)]_
-
+<figure align="center">
+  <img src="CT-15-item-invalido-validacao-evidencia-01.png" alt="CT-15 — item-invalido-validacao — evidência 01" width="85%">
+  <figcaption><strong>CT-15 · item-invalido-validacao · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-15.1 — item inválido - Bug na API - Validação Manual
@@ -626,10 +681,10 @@ Validar estrutura mínima do item.
 
 **Evidências:**
 
->
-> _[![alt text](image-75.png)]_
-
-
+<figure align="center">
+  <img src="CT-15-1-item-invalido-bug-evidencia-01.png" alt="CT-15-1 — item-invalido-bug — evidência 01" width="85%">
+  <figcaption><strong>CT-15-1 · item-invalido-bug · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-16 — Rejeitar produto inexistente
@@ -661,9 +716,10 @@ Validar referência aos produtos.
 **Evidências:**
 
 
->
-> _[![alt text](image-47.png)]_
-
+<figure align="center">
+  <img src="CT-16-produto-inexistente-evidencia-01.png" alt="CT-16 — produto-inexistente — evidência 01" width="85%">
+  <figcaption><strong>CT-16 · produto-inexistente · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-17 — Rejeitar produto duplicado
@@ -695,11 +751,10 @@ Validar regra de duplicidade.
 **Evidências:**
 
 
->
-> _[![alt text](image-49.png)]_
-
-
-
+<figure align="center">
+  <img src="CT-17-produto-duplicado-evidencia-01.png" alt="CT-17 — produto-duplicado — evidência 01" width="85%">
+  <figcaption><strong>CT-17 · produto-duplicado · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-18 — Criar pedido com cupom válido
@@ -731,10 +786,10 @@ Validar fluxo de confirmação.
 **Evidências:**
 
 
->
-> _[![alt text](image-50.png)]_
-
-
+<figure align="center">
+  <img src="CT-18-pedido-cupom-valido-evidencia-01.png" alt="CT-18 — pedido-cupom-valido — evidência 01" width="85%">
+  <figcaption><strong>CT-18 · pedido-cupom-valido · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-19 — Rejeitar pedido com cupom inválido ou expirado
@@ -765,14 +820,15 @@ Validar erros do endpoint de pedidos.
 
 **Evidências:**
 
->
-> _[![alt text](image-51.png)
+<figure align="center">
+  <img src="CT-19-pedido-cupom-invalido-expirado-evidencia-01.png" alt="CT-19 — pedido-cupom-invalido-expirado — evidência 01" width="85%">
+  <figcaption><strong>CT-19 · pedido-cupom-invalido-expirado · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-52.png)
-
-]_
-
-
+<figure align="center">
+  <img src="CT-19-pedido-cupom-invalido-expirado-evidencia-02.png" alt="CT-19 — pedido-cupom-invalido-expirado — evidência 02" width="85%">
+  <figcaption><strong>CT-19 · pedido-cupom-invalido-expirado · evidência 02</strong></figcaption>
+</figure>
 ---
 
 ## CT-20 — Validar dados do cliente
@@ -803,14 +859,10 @@ Validar regras preexistentes.
 
 **Evidências:**
 
->
-> _[
-
-![alt text](image-54.png)
-
-]_
-
-
+<figure align="center">
+  <img src="CT-20-dados-cliente-evidencia-01.png" alt="CT-20 — dados-cliente — evidência 01" width="85%">
+  <figcaption><strong>CT-20 · dados-cliente · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-21 — Validar JSON inválido, rota inexistente e método não permitido
@@ -841,16 +893,20 @@ Validar padrão de erros.
 
 **Evidências:**
 
->
-> _[![alt text](image-58.png)
+<figure align="center">
+  <img src="CT-21-erros-http-evidencia-01.png" alt="CT-21 — erros-http — evidência 01" width="85%">
+  <figcaption><strong>CT-21 · erros-http · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-56.png)
+<figure align="center">
+  <img src="CT-21-erros-http-evidencia-02.png" alt="CT-21 — erros-http — evidência 02" width="85%">
+  <figcaption><strong>CT-21 · erros-http · evidência 02</strong></figcaption>
+</figure>
 
-![alt text](image-57.png)
-
-]_
-
-
+<figure align="center">
+  <img src="CT-21-erros-http-evidencia-03.png" alt="CT-21 — erros-http — evidência 03" width="85%">
+  <figcaption><strong>CT-21 · erros-http · evidência 03</strong></figcaption>
+</figure>
 ---
 
 ## CT-22 — Consultar produto existente e inexistente
@@ -882,13 +938,15 @@ Validar endpoint de produto.
 **Evidências:**
 
 
->
-> _[![alt text](image-59.png)
+<figure align="center">
+  <img src="CT-22-consulta-produto-evidencia-01.png" alt="CT-22 — consulta-produto — evidência 01" width="85%">
+  <figcaption><strong>CT-22 · consulta-produto · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-60.png)]_
-
-
-
+<figure align="center">
+  <img src="CT-22-consulta-produto-evidencia-02.png" alt="CT-22 — consulta-produto — evidência 02" width="85%">
+  <figcaption><strong>CT-22 · consulta-produto · evidência 02</strong></figcaption>
+</figure>
 ---
 
 ## CT-23 — Validar isolamento do carrinho por aba/janela
@@ -919,24 +977,30 @@ Validar comportamento explicitamente documentado.
 
 **Evidências:**
 
->
-> _[ ![alt text](image-62.png)
+<figure align="center">
+  <img src="CT-23-isolamento-carrinho-evidencia-01.png" alt="CT-23 — isolamento-carrinho — evidência 01" width="85%">
+  <figcaption><strong>CT-23 · isolamento-carrinho · evidência 01</strong></figcaption>
+</figure>
 
-   ![alt text](image-63.png) 
+<figure align="center">
+  <img src="CT-23-isolamento-carrinho-evidencia-02.png" alt="CT-23 — isolamento-carrinho — evidência 02" width="85%">
+  <figcaption><strong>CT-23 · isolamento-carrinho · evidência 02</strong></figcaption>
+</figure>
 
-![alt text](image-64.png)
+<figure align="center">
+  <img src="CT-23-isolamento-carrinho-evidencia-03.png" alt="CT-23 — isolamento-carrinho — evidência 03" width="85%">
+  <figcaption><strong>CT-23 · isolamento-carrinho · evidência 03</strong></figcaption>
+</figure>
 
-![alt text](image-65.png)
-
-    
-]_
-
-
+<figure align="center">
+  <img src="CT-23-isolamento-carrinho-evidencia-04.png" alt="CT-23 — isolamento-carrinho — evidência 04" width="85%">
+  <figcaption><strong>CT-23 · isolamento-carrinho · evidência 04</strong></figcaption>
+</figure>
 ---
 
-## CT-24 — Validar frete imediatamente abaixo do limite de R$200,00
+## CT-24 — Validar frete no subtotal máximo abaixo de R$ 200,00
 
-**Pré-requisito:** Carrinho com subtotal de R$199,99.
+**Pré-requisito:** Carrinho vazio; P005 (R$ 100,00), P008 (R$ 50,00) e P004 (R$ 49,90) disponíveis.
 
 **Prioridade:** MÉDIA
 
@@ -944,17 +1008,17 @@ Validar comportamento explicitamente documentado.
 
 **Passos:**
 
-1. Adicionar produtos até atingir subtotal de R$199,99.
-2. Acessar o cálculo do carrinho.
-3. Verificar frete e valor faltante para frete grátis.
+1. Adicionar uma unidade de P005, uma de P008 e uma de P004.
+2. Abrir o carrinho e confirmar subtotal de R$ 199,90.
+3. Verificar frete, total e valor faltante para frete grátis.
 
 **Resultado esperado:**
 
-Frete de R$19,90; freteGratis=false; valorFaltanteFreteGratis=R$0,01.
+Subtotal R$ 199,90; frete R$ 19,90; `freteGratis=false`; valor faltante R$ 0,10; total R$ 219,80.
 
 **Resultado obtido:**
 
-Frete de R$19,90; freteGratis=false; valorFaltanteFreteGratis=R$0,01.
+Subtotal R$ 199,90; frete R$ 19,90; `freteGratis=false`; valor faltante R$ 0,10; total R$ 219,80.
 
 **Veredito:** APROVADO/PASSOU
 
@@ -964,19 +1028,17 @@ Validar limite inferior da regra CA06/CA07.
 
 **Evidências:**
 
->
-> _[
-
-![alt text](image-66.png)
-
-]_
+<figure align="center">
+  <img src="CT-24-frete-abaixo-limite-199-90-ui-01.png" alt="CT-24: carrinho de R$ 199,90 com frete de R$ 19,90 e R$ 0,10 faltantes" width="85%">
+  <figcaption><strong>CT-24 · Maior subtotal montável abaixo de R$ 200,00</strong></figcaption>
+</figure>
 
 
 ---
 
-## CT-25 — Validar frete imediatamente acima do limite de R$200,00
+## CT-25 — Validar frete no menor subtotal montável acima de R$ 200,00
 
-**Pré-requisito:** Carrinho com subtotal de R$200,01.
+**Pré-requisito:** Carrinho vazio; P001 (R$ 59,90) e P006 (R$ 29,90) disponíveis.
 
 **Prioridade:** MÉDIA
 
@@ -984,17 +1046,17 @@ Validar limite inferior da regra CA06/CA07.
 
 **Passos:**
 
-1. Adicionar produtos até atingir subtotal de R$200,01.
-2. Acessar o cálculo do carrinho.
+1. Adicionar uma Camiseta Essencial P001 e cinco Kits de Meias P006.
+2. Abrir o carrinho e confirmar subtotal de R$ 209,40.
 3. Verificar frete e valor faltante para frete grátis.
 
 **Resultado esperado:**
 
-Frete R$0,00; freteGratis=true; valorFaltanteFreteGratis=R$0,00.
+Subtotal R$ 209,40; frete R$ 0,00; frete grátis; valor faltante R$ 0,00; total R$ 209,40.
 
 **Resultado obtido:**
 
-Frete R$0,00; freteGratis=true; valorFaltanteFreteGratis=R$0,00.
+Subtotal R$ 209,40; frete R$ 0,00; frete grátis; valor faltante R$ 0,00; total R$ 209,40.
 
 **Veredito:** APROVADO/PASSOU
 
@@ -1004,18 +1066,17 @@ Validar limite superior da regra CA06.
 
 **Evidências:**
 
-> _[
-    
-![alt text](image-67.png)
-
-]_
+<figure align="center">
+  <img src="CT-25-frete-acima-limite-209-40-ui-01.png" alt="CT-25: carrinho de R$ 209,40 com frete grátis" width="85%">
+  <figcaption><strong>CT-25 · Menor subtotal montável acima de R$ 200,00</strong></figcaption>
+</figure>
 
 
 ---
 
 ## CT-26 — Validar frete grátis após aplicação de desconto quando subtotal original é elegível
 
-**Pré-requisito:** Carrinho com subtotal de R$210,00 e cupom BEMVINDO10 válido.
+**Pré-requisito:** Carrinho vazio; P003, P008 e P001 disponíveis; cupom BEMVINDO10 válido.
 
 **Prioridade:** ALTA
 
@@ -1023,18 +1084,18 @@ Validar limite superior da regra CA06.
 
 **Passos:**
 
-1. Adicionar produtos totalizando R$210,00.
+1. Adicionar uma unidade de P003, uma de P008 e uma de P001 (subtotal de R$ 299,80).
 2. Aplicar o cupom BEMVINDO10.
 3. Calcular o carrinho.
 4. Conferir subtotal, desconto, frete e total.
 
 **Resultado esperado:**
 
-Subtotal R$210,00; desconto R$21,00; frete R$0,00; freteGratis=true; total R$189,00. A elegibilidade do frete considera o subtotal antes do desconto.
+Subtotal R$ 299,80; desconto R$ 29,98; frete R$ 0,00; frete grátis; total R$ 269,82. A elegibilidade do frete considera o subtotal antes do desconto.
 
 **Resultado obtido:**
 
-200 OK. Subtotal R$210,00; desconto R$21,00; frete R$0,00; freteGratis=true; total R$189,00. A elegibilidade do frete considera o subtotal antes do desconto.
+HTTP 200. Subtotal R$ 299,80; desconto R$ 29,98; frete R$ 0,00; `freteGratis=true`; total R$ 269,82. A elegibilidade do frete considera o subtotal antes do desconto.
 
 
 **Veredito:** APROVADO/PASSOU
@@ -1045,8 +1106,10 @@ Cenário crítico para CA08.
 
 **Evidências:**
 
->
-> _[![alt text](image-68.png)]_
+<figure align="center">
+  <img src="CT-26-frete-apos-desconto-api-01.png" alt="CT-26: resposta da API com subtotal R$ 299,80, desconto R$ 29,98 e frete grátis" width="85%">
+  <figcaption><strong>CT-26 · Frete grátis calculado sobre o subtotal original</strong></figcaption>
+</figure>
 
 
 ---
@@ -1081,12 +1144,10 @@ Complementa a validação da CA10 no nível da interface.
 
 **Evidências:**
 
->
-> _[![alt text](image-69.png)
-
-    ]_
-
-
+<figure align="center">
+  <img src="CT-27-limite-quantidade-interface-evidencia-01.png" alt="CT-27 — limite-quantidade-interface — evidência 01" width="85%">
+  <figcaption><strong>CT-27 · limite-quantidade-interface · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-28 — Consultar lista de produtos pela API
@@ -1119,10 +1180,10 @@ Complementa o cenário de consulta de produto individual.
 
 **Evidências:**
 
->
-> _[![alt text](image-70.png)]_
-
-
+<figure align="center">
+  <img src="CT-28-lista-produtos-api-evidencia-01.png" alt="CT-28 — lista-produtos-api — evidência 01" width="85%">
+  <figcaption><strong>CT-28 · lista-produtos-api · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-29 — Validar cálculo oficial de cupom pela API
@@ -1154,10 +1215,10 @@ Reproduzir o exemplo oficial da documentação.
 
 **Evidências:**
 
->
-> _[![alt text](image-71.png)]_
-
-
+<figure align="center">
+  <img src="CT-29-cupom-api-evidencia-01.png" alt="CT-29 — cupom-api — evidência 01" width="85%">
+  <figcaption><strong>CT-29 · cupom-api · evidência 01</strong></figcaption>
+</figure>
 ---
 
 ## CT-30 — Comparar resultado apresentado na interface com o cálculo da API
@@ -1181,7 +1242,7 @@ Os valores apresentados na interface devem ser iguais aos valores retornados pel
 
 **Resultado obtido:**
 
-Os valores apresentados na interface foram ser iguais aos valores retornados pela API para o mesmo conjunto de itens e cupom.
+Interface e API apresentaram os mesmos valores para a cesta P005 + P008 + P004 com `BEMVINDO10`: subtotal R$ 199,90; desconto R$ 19,99; frete R$ 19,90; valor faltante R$ 0,10; total R$ 199,81.
 
 **Veredito:** APROVADO/PASSOU
 
@@ -1191,8 +1252,12 @@ Valida a integração entre interface e API, considerando que os cálculos são 
 
 **Evidências:**
 
->
-> _[![alt text](image-72.png)]_
+<figure align="center">
+  <img src="CT-30-ui-carrinho-cupom-01.png" alt="CT-30: interface mostra subtotal R$ 199,90, desconto R$ 19,99, frete R$ 19,90 e total R$ 199,81" width="85%">
+  <figcaption><strong>CT-30 · Valores exibidos no carrinho</strong></figcaption>
+</figure>
+
+Resposta da mesma chamada registrada em [`CT-30-comparacao-ui-api.json`](../evidencias/CT-30-comparacao-ui-api.json).
 
 
 ---
@@ -1228,13 +1293,15 @@ Validar CA referente ao formato do CEP.
 **Evidências:**
 
 
->
-> _[![alt text](image-73.png)i
+<figure align="center">
+  <img src="CT-31-cep-com-sem-hifen-evidencia-01.png" alt="CT-31 — cep-com-sem-hifen — evidência 01" width="85%">
+  <figcaption><strong>CT-31 · cep-com-sem-hifen · evidência 01</strong></figcaption>
+</figure>
 
-![alt text](image-74.png)
-
-]_
-
+<figure align="center">
+  <img src="CT-31-cep-com-sem-hifen-evidencia-02.png" alt="CT-31 — cep-com-sem-hifen — evidência 02" width="85%">
+  <figcaption><strong>CT-31 · cep-com-sem-hifen · evidência 02</strong></figcaption>
+</figure>
 ---
 
 ## Registro complementar — Exploração assistida com Playwright MCP (11/10/2026)

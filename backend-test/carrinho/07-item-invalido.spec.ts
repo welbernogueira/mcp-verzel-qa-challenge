@@ -6,6 +6,10 @@ const API_URL =
 test.describe('API07 - Item inválido', () => {
 
   test('deve retornar 422 quando um item não possuir produtoId e quantidade', async ({ request }) => {
+    test.fail(
+      true,
+      'BUG-API-002: API retorna PRODUTO_NAO_ENCONTRADO para item inválido'
+    );
 
     const response = await request.post(`${API_URL}/carrinho/calcular`, {
       data: {

@@ -1,53 +1,68 @@
-# BUG-API-002 — Item inválido retorna código incorreto
+# BUG-API-002 — Item inválido retorna código de erro incorreto
 
-## Título
+## Identificação
 
-[API] Item sem produtoId e quantidade retorna PRODUTO_NAO_ENCONTRADO em vez de ITEM_INVALIDO
+| Campo | Valor |
+|---|---|
+| Cenário | CT-15.1 |
+| Módulo | API de carrinho |
+| Método e endpoint | `POST /api/carrinho/calcular` |
+| Prioridade | Média |
+| Severidade | Média |
+| Status | Aberto |
 
-## Prioridade
+## Descrição
 
-MÉDIA
+Quando `itens` contém um objeto sem `produtoId` e sem `quantidade`, a API responde com HTTP `422`, porém usa o código `PRODUTO_NAO_ENCONTRADO`. Para essa estrutura malformada, o contrato documentado prevê `ITEM_INVALIDO`.
 
-## Severidade
+## Pré-condições
 
-MÉDIA
+- Ambiente de QA disponível.
+- Endpoint de cálculo acessível.
 
-## Status
+## Passos para reproduzir
 
-ABERTO
+1. Abra a loja de QA e o console do navegador.
+2. Execute a requisição abaixo.
+3. Confira o status HTTP e `erro.codigo` no corpo da resposta.
 
-## Endpoint
+```js
+fetch('/api/carrinho/calcular', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ itens: [{}] })
+}).then(async response => ({
+  status: response.status,
+  body: await response.json()
+})).then(console.log);
+```
 
-POST /api/carrinho/calcular
+## Resultado esperado
 
-![alt text](image.png)
+- HTTP `422`.
+- Código `ITEM_INVALIDO`.
 
+## Resultado observado
 
-## Cenário
+- HTTP `422`.
+- Código `PRODUTO_NAO_ENCONTRADO`.
 
-API07 — Item inválido
+## Impacto
 
-## Payload
+O status comunica que a requisição foi rejeitada, mas o código descreve uma causa diferente da entrada enviada. Clientes da API podem exibir uma mensagem inadequada ou tratar incorretamente o erro.
 
-```json
-{
-  "itens": [
-    {}
-  ]
-}
+## Evidências
 
+<figure align="center">
+  <img src="BUG-API-002-01-codigo-retornado.png" alt="BUG-API-002: resposta retorna PRODUTO_NAO_ENCONTRADO para item vazio" width="85%">
+  <figcaption><strong>BUG-API-002 · Código de erro retornado para item inválido</strong></figcaption>
+</figure>
 
-Resultado esperado
+<figure align="center">
+  <img src="../documentos/CT-15-1-item-invalido-bug-evidencia-01.png" alt="CT-15.1: evidência complementar do item inválido" width="85%">
+  <figcaption><strong>CT-15.1 · Evidência complementar da resposta</strong></figcaption>
+</figure>
 
-Conforme documentação da API:
-- HTTP 422
-- código: ITEM_INVALIDO
+## Automação relacionada
 
-Resultado atual
-A API retorna:
-- HTTP 422
-- código: PRODUTO_NAO_ENCONTRADO
-Evidência
-
-Teste automatizado Playwright:
-backend-test/carrinho/07-item-invalido.spec.ts
+[`backend-test/carrinho/07-item-invalido.spec.ts`](../backend-test/carrinho/07-item-invalido.spec.ts) verifica o contrato esperado. O teste expressa a divergência conhecida e não foi executado nesta revisão.

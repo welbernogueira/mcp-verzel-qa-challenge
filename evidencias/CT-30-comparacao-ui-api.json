@@ -1,0 +1,36 @@
+{
+  "capturadoEm": "2026-10-17",
+  "ambiente": "https://verzel-store.qa-test-verzel-store.workers.dev",
+  "metodo": "POST",
+  "endpoint": "/api/carrinho/calcular",
+  "request": {
+    "itens": [
+      { "produtoId": "P005", "quantidade": 1 },
+      { "produtoId": "P008", "quantidade": 1 },
+      { "produtoId": "P004", "quantidade": 1 }
+    ],
+    "cupom": "BEMVINDO10"
+  },
+  "statusHttp": 200,
+  "respostaApi": {
+    "subtotal": 199.9,
+    "desconto": 19.99,
+    "frete": 19.9,
+    "freteGratis": false,
+    "valorFaltanteFreteGratis": 0.1,
+    "total": 199.81,
+    "cupom": {
+      "codigo": "BEMVINDO10",
+      "aplicado": true,
+      "mensagem": "Cupom aplicado: 10% de desconto nos produtos."
+    }
+  },
+  "valoresExibidosNaInterface": {
+    "subtotal": 199.9,
+    "desconto": 19.99,
+    "frete": 19.9,
+    "total": 199.81,
+    "valorFaltanteFreteGratis": 0.1
+  },
+  "observacao": "A resposta da API e os valores exibidos no carrinho coincidiram nesta cesta."
+}

@@ -1,58 +1,27 @@
-# 04 — Bugs Encontrados
+# 05 — Bugs encontrados
 
-Este documento será preenchido durante a execução dos 31 cenários da matriz.
+Este documento consolida os defeitos observados durante a validação manual. Cada registro canônico em `bugs/` contém pré-condições, passos para reprodução, resultados esperado e observado, impacto e evidências.
 
 ## Resumo
 
-| ID | Cenário | Prioridade | Status | Evidência |
-|---|---|---|---|---|
-| BUG-001 | _Preencher se identificado_ | _CRÍTICA/ALTA/MÉDIA/BAIXA_ | _ABERTO_ | _Inserir evidência_ |
+| ID | Cenário | Prioridade | Severidade | Status | Registro |
+|---|---|---:|---:|---|---|
+| BUG-CA06-API-001 | CA06 / CT-06 — Frete no subtotal exato de R$ 200,00 | Alta | Alta | Aberto | [`BUG-CA06-API-001-frete-no-limite.md`](../bugs/BUG-CA06-API-001-frete-no-limite.md) |
+| BUG-CA10-API-001 | CA10 / CT-11 — Quantidade acima de cinco unidades na API | Alta | Alta | Aberto | [`BUG-CA10-API-001-limite-quantidade.md`](../bugs/BUG-CA10-API-001-limite-quantidade.md) |
+| BUG-API-002 | CT-15.1 — Código incorreto para item inválido | Média | Média | Aberto | [`BUG-API-002-item-invalido-retorna-produto-nao-encontrado.md`](../bugs/BUG-API-002-item-invalido-retorna-produto-nao-encontrado.md) |
 
-## Registro de bug
+## BUG-CA06-API-001 — Frete cobrado no limite exato
 
-### BUG-001 — [Título do defeito]
+Com duas unidades de P005, envie `POST /api/carrinho/calcular` com `{"itens":[{"produtoId":"P005","quantidade":2}]}`. O subtotal é R$ 200,00. A regra exige frete zero e total de R$ 200,00; a resposta observada cobra R$ 19,90 e retorna total de R$ 219,90. Veja os [passos completos e evidências](../bugs/BUG-CA06-API-001-frete-no-limite.md).
 
-**Cenário:**  
-[CT-XX — Nome do cenário]
+## BUG-CA10-API-001 — Limite de quantidade não validado pela API
 
-**Prioridade:**  
-[CRÍTICA / ALTA / MÉDIA / BAIXA]
+Envie `POST /api/carrinho/calcular` com `{"itens":[{"produtoId":"P001","quantidade":6}]}`. A API responde HTTP 200 e calcula o carrinho, quando deveria retornar HTTP 422 com `QUANTIDADE_MAXIMA_EXCEDIDA`. Veja os [passos completos e evidências](../bugs/BUG-CA10-API-001-limite-quantidade.md).
 
-**Ambiente:**  
-QA — Verzel Store
+## BUG-API-002 — Código de erro incorreto para item inválido
 
-**Pré-condição:**  
-[Descrever]
+Envie `POST /api/carrinho/calcular` com `{"itens":[{}]}`. A API responde HTTP 422 com `PRODUTO_NAO_ENCONTRADO`, quando o contrato prevê `ITEM_INVALIDO`. Veja os [passos completos e evidências](../bugs/BUG-API-002-item-invalido-retorna-produto-nao-encontrado.md).
 
-**Passos para reprodução:**
+## Critério de registro
 
-1. [Passo]
-2. [Passo]
-3. [Passo]
-
-**Resultado esperado:**  
-[Comportamento definido na documentação]
-
-**Resultado obtido:**  
-[Comportamento observado]
-
-**Impacto:**  
-[Descrever impacto funcional]
-
-**Evidências:**  
-[Inserir prints]
-
-**Status:**  
-ABERTO
-
-## Critérios para registro
-
-Um comportamento somente será registrado como bug quando divergir de:
-
-- critério de aceite;
-- regra de negócio;
-- contrato documentado da API;
-- resultado esperado definido na matriz;
-- comportamento explicitamente exigido pela documentação.
-
-Comportamentos descritos pela documentação como simplificações do ambiente não devem ser registrados como bugs.
+Os resultados foram classificados como defeitos quando divergem de um critério de aceite, regra de negócio ou contrato documentado. As capturas históricas que não comprovam os cenários corrigidos foram preservadas, identificadas e separadas das evidências atuais em [`evidencias/historico/`](../evidencias/historico/).

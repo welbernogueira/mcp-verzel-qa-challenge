@@ -7,6 +7,11 @@ test.describe('CA10 - Limite de 5 unidades por produto - API', () => {
   test('deve rejeitar quantidade superior a 5 unidades', async ({
     request,
   }) => {
+    test.fail(
+      true,
+      'BUG-CA10-API-001: a API aceita quantidade superior a cinco unidades'
+    );
+
     const response = await request.post(API_URL, {
       headers: {
         'Content-Type': 'application/json',

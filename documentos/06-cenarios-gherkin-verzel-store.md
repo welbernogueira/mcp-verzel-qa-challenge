@@ -83,15 +83,19 @@ Cenário: Impedir aplicação simultânea de mais de um cupom
 ## Funcionalidade: Cálculo de frete e valores
 
 ### CT-06 — Frete grátis no limite de R$ 200,00
-**Status registrado:** PASSOU
+**Status registrado:** NÃO PASSOU — BUG-CA06-API-001
 
 ```gherkin
 Cenário: Calcular frete grátis para subtotal de R$ 200,00
-  Dado que o subtotal do carrinho é R$ 200,00
+  Dado que o carrinho contém duas unidades de P005 a R$ 100,00 cada
+  E que o subtotal é exatamente R$ 200,00
   Quando solicito o cálculo do carrinho
   Então o frete deve ser R$ 0,00
   E o valor faltante para frete grátis deve ser R$ 0,00
+  E o total deve ser R$ 200,00
 ```
+
+**Resultado observado:** subtotal R$ 200,00, frete R$ 19,90, `freteGratis=false` e total R$ 219,90. Consulte [`BUG-CA06-API-001`](../bugs/BUG-CA06-API-001-frete-no-limite.md).
 
 ### CT-07 — Cobrar frete abaixo de R$ 200,00
 **Status registrado:** PASSOU
@@ -148,18 +152,65 @@ Cenário: Validar a fórmula do total
 **Status registrado:** PASSOU
 
 ```gherkin
-Esquema do Cenário: Validar o limite de frete grátis
-  Dado que o subtotal do carrinho é R$ <subtotal>
+Esquema do Cenário: Conferir os subtotais montáveis mais próximos do limite
+  Dado que monto a cesta "<cesta>" com os produtos do catálogo
+  E que o subtotal é R$ <subtotal>
   Quando solicito o cálculo do carrinho
   Então o frete deve ser R$ <frete>
   E o indicador de frete grátis deve ser <frete_gratis>
   E o valor faltante deve ser R$ <faltante>
 
 Exemplos:
-  | subtotal | frete | frete_gratis | faltante |
-  | 199,99   | 19,90 | false        | 0,01     |
-  | 200,01   | 0,00  | true         | 0,00     |
+  | cesta              | subtotal | frete | frete_gratis | faltante |
+  | P005 + P008 + P004 | 199,90   | 19,90 | false        | 0,10     |
+  | P001 + 5 × P006    | 209,40   | 0,00  | true         | 0,00     |
 ```
+
+R$ 199,99 e R$ 200,01 não podem ser montados com o catálogo e o limite de cinco unidades. O limite exato é verificado separadamente no CT-06 com duas unidades de P005.
+
+### CT-26 — Manter frete grátis após desconto
+**Status registrado:** PASSOU
+
+```gherkin
+Cenário: Aplicar cupom sem perder a elegibilidade de frete grátis
+  Dado que o carrinho contém P003, P008 e P001, com subtotal de R$ 299,80
+  E que aplico o cupom BEMVINDO10
+  Quando solicito o cálculo do carrinho
+  Então o desconto deve ser R$ 29,98
+  E o frete deve ser R$ 0,00 porque o subtotal original supera R$ 200,00
+  E o total deve ser R$ 269,82
+```
+
+### CT-29 — Reproduzir o cálculo oficial de cupom pela API
+**Status registrado:** PASSOU
+
+```gherkin
+Cenário: Calcular o exemplo oficial de BEMVINDO10
+  Dado que o carrinho contém P002 uma vez e P004 duas vezes
+  E que aplico o cupom BEMVINDO10
+  Quando envio a requisição para POST /api/carrinho/calcular
+  Então a API deve retornar subtotal de R$ 239,70
+  E desconto de R$ 23,97
+  E frete de R$ 0,00
+  E total de R$ 215,73
+```
+
+### CT-30 — Comparar os valores da interface e da API
+**Status registrado:** PASSOU nesta cesta
+
+```gherkin
+Cenário: Comparar o resumo do carrinho com a resposta da API
+  Dado que a interface contém P005, P008 e P004, uma unidade de cada
+  E que BEMVINDO10 está aplicado
+  Quando comparo o resumo da interface com POST /api/carrinho/calcular
+  Então ambos devem apresentar subtotal de R$ 199,90
+  E desconto de R$ 19,99
+  E frete de R$ 19,90
+  E valor faltante de R$ 0,10
+  E total de R$ 199,81
+```
+
+**Evidências:** a captura da interface está em [`CT-30-ui-carrinho-cupom-01.png`](CT-30-ui-carrinho-cupom-01.png); os valores da resposta correspondente estão em [`CT-30-comparacao-ui-api.json`](../evidencias/CT-30-comparacao-ui-api.json).
 
 ---
 
@@ -434,6 +485,7 @@ Funcionalidade: Anúncio acessível de erros de cupom
 |---|---|---|
 | CT-11 / CA10 | `BUG-CA10-API-001` | HTTP 200 ao enviar quantidade 6; esperado HTTP 422 e `QUANTIDADE_MAXIMA_EXCEDIDA` |
 | CT-15.1 | `BUG-API-002` | HTTP 422 com `PRODUTO_NAO_ENCONTRADO`; esperado `ITEM_INVALIDO` |
+| CT-06 / CA06 | `BUG-CA06-API-001` | Subtotal R$ 200,00 retorna frete R$ 19,90; esperado frete zero |
 
 ## Como evoluir para BDD executável
 

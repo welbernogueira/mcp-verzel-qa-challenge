@@ -111,8 +111,10 @@ verzel-qa-challenge/
 │   ├── http/           # Métodos HTTP
 │   ├── pedidos/        # Criação de pedidos e validações
 │   └── produtos/       # Listagem e consulta de produtos
-├── bugs/               # Registros de defeitos e evidências
+├── bugs/               # Registros canônicos de defeitos com passos e evidências
 ├── documentos/         # Cenários, análise, Gherkin e execução manual
+├── evidencias/
+│   └── historico/      # Capturas antigas preservadas e identificadas
 ├── e2e/
 │   ├── checkout/       # Testes E2E do checkout
 │   └── cupons/         # Testes E2E de cupons, frete e cálculos
@@ -254,11 +256,14 @@ A suíte em `e2e/cupons/` cobre, entre outros pontos:
 -   Cupom inexistente e cupom expirado.
 -   Restrição de aplicação de cupons.
 -   Frete grátis a partir do limite de compra.
+-   Fronteira exata de R$ 200,00, registrada como falha esperada pelo
+    defeito BUG-CA06-API-001.
 -   Frete abaixo do limite.
 -   Cálculo do frete com base no subtotal anterior ao desconto.
 -   Garantia de que o desconto não incida sobre o frete.
 -   Limite de cinco unidades por produto na interface e validação
-    exploratória da API.
+    da API; os defeitos conhecidos estão identificados como falhas
+    esperadas nos testes automatizados correspondentes.
 -   Arredondamento de valores monetários para duas casas decimais.
 
 ### Testes E2E --- Checkout
@@ -313,8 +318,8 @@ seguintes locais do repositório:
 -   **`bugs/`** --- registros dos bugs encontrados, incluindo descrição,
     passos para reprodução, comportamento esperado e observado e
     evidências disponíveis.
--   **`documentos/bugs/`** --- documentação complementar de bugs e
-    evidências, quando aplicável.
+-   **`documentos/bugs/`** --- referência ao registro canônico de
+    quantidade, mantida para compatibilidade.
 -   **`documentos/05-bugs-encontrados.md`** --- visão consolidada dos
     defeitos identificados durante a execução.
 -   **Relatório Playwright** --- detalhes das execuções automatizadas
@@ -323,6 +328,14 @@ seguintes locais do repositório:
 
 ### Defeitos conhecidos
 
+#### BUG-CA06-API-001 --- Frete cobrado no subtotal exato de R$ 200,00
+
+-   **Endpoint:** `POST /api/carrinho/calcular`
+-   **Reprodução:** duas unidades de P005 produzem subtotal de R$ 200,00.
+-   **Esperado:** frete R$ 0,00, `freteGratis=true` e total R$ 200,00.
+-   **Observado:** frete R$ 19,90, `freteGratis=false` e total R$ 219,90.
+-   **Registro com passos e evidências:** [BUG-CA06-API-001](bugs/BUG-CA06-API-001-frete-no-limite.md).
+
 #### BUG-CA10-API-001 --- API permite quantidade superior a cinco unidades
 
 -   **Endpoint:** `POST /api/carrinho/calcular`
@@ -330,9 +343,7 @@ seguintes locais do repositório:
     cinco unidades.
 -   **Comportamento esperado:** rejeitar a requisição com HTTP `422` e
     código `QUANTIDADE_MAXIMA_EXCEDIDA`.
--   **Evidência/documentação:** consulte o arquivo
-    `BUG-CA10-API-001-limite-quantidade.md` em `bugs/` ou
-    `documentos/bugs/`.
+-   **Registro com passos e evidências:** [BUG-CA10-API-001](bugs/BUG-CA10-API-001-limite-quantidade.md).
 
 #### BUG-API-002 --- Código incorreto para item inválido
 
@@ -340,9 +351,7 @@ seguintes locais do repositório:
 -   **Payload documentado:** `{"itens":[{}]}`
 -   **Comportamento observado:** a API retorna `PRODUTO_NAO_ENCONTRADO`.
 -   **Comportamento esperado:** HTTP `422` com código `ITEM_INVALIDO`.
--   **Evidência/documentação:** consulte
-    `BUG-API-002-item-invalido-retorna-produto-nao-encontrado.md` na
-    pasta `bugs/`.
+-   **Registro com passos e evidências:** [BUG-API-002](bugs/BUG-API-002-item-invalido-retorna-produto-nao-encontrado.md).
 
 Um teste que evidencia um defeito conhecido deve ser analisado junto ao
 respectivo registro de bug e ao relatório da execução. Isso permite

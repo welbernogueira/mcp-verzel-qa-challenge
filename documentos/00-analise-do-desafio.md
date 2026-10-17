@@ -63,8 +63,10 @@ total = subtotal - desconto + frete
 - Quantidade válida: inteiro maior ou igual a 1.
 - Quantidade máxima: 5 unidades por produto.
 - Frete grátis: subtotal de R$ 200,00 ou mais.
-- Limite inferior para frete: R$ 199,99.
-- Limite superior para frete: R$ 200,01.
+- Exatamente R$ 200,00 é montável com 2 unidades de P005 (R$ 100,00 cada).
+- Maior subtotal montável abaixo do limite: R$ 199,90 (P005 + P008 + P004); frete de R$ 19,90 e faltante de R$ 0,10.
+- Menor subtotal montável acima do limite, respeitando o máximo de 5 unidades por produto: R$ 209,40 (P001 + 5 × P006); frete grátis.
+- R$ 199,99 e R$ 200,01 não são subtotais montáveis com os produtos e quantidades permitidos.
 - CEP: 8 dígitos, com ou sem hífen.
 
 ## Estratégia

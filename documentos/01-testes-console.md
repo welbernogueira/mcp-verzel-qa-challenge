@@ -25,4 +25,7 @@ na pasta:
 
 ```text
 backend-test/
+```
+
+Os cenários e os registros da execução manual estão em [04 — Execução dos testes manuais](04-execucao-testes-manuais-verzel-store.md). A suíte automatizada pode ser executada conforme as instruções no [README](../README.md).
 
